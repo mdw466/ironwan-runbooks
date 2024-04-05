@@ -25,5 +25,5 @@
           }
         headers:
           Content-Type: application/json
-        status_code: 200
+        status_code: 2
      # when: disk_usage.stdout[:-1]|int > 80
