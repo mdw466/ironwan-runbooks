@@ -6,7 +6,7 @@
     - name: Check disk space available
       ansible.builtin.shell:
         cmd: |
-#          set -euo pipefail
+          set -euo pipefail
           df -Ph /dev/sda /dev/sdb2 /dev/sdc /dev/mmcblk0p2
 #          df -Ph / | awk 'NR==2 {print $5}'
         executable: /bin/bash
@@ -19,7 +19,7 @@
         url: https://discord.com/api/webhooks/1225440016575103077/N56PO8X6Jf3mTkSWDKhelqpdw8mklCcMmUEmWQZxO9uiHuxIQE68pN0Gfoecjbt-1xMJ
         method: POST
         body_format: json
-        body: '{"content": "Disk space summary: {{ inventory_hostname }}"}'
+        body: '{"content": "Disk space summary for {{ inventory_hostname }}:/n {{ disk_usage.stdout }}"}'
         headers:
           Content-Type: application/json
         status_code: 200
