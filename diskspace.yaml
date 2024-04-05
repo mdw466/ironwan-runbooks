@@ -7,7 +7,8 @@
       ansible.builtin.shell:
         cmd: |
           set -euo pipefail
-          df -Ph / | awk 'NR==2 {print $5}'
+          df -Ph /dev/sda /dev/sdb2 /dev/sdc /dev/mmcblk0p2
+#          df -Ph / | awk 'NR==2 {print $5}'
         executable: /bin/bash
       changed_when: false
       check_mode: false
@@ -21,5 +22,5 @@
         body: '{"content": "Disk space on {{ inventory_hostname }} is above 80%!"}'
         headers:
           Content-Type: application/json
-        status_code: 204
-      when: disk_usage.stdout[:-1]|int > 20
+        status_code: 200
+     # when: disk_usage.stdout[:-1]|int > 80
