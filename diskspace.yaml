@@ -14,14 +14,14 @@
       check_mode: false
       register: disk_usage
 
-    - name: Send discord message when disk space is over 80%
+    - name: Send discord message with disk space output
       uri:
-        url: https://discord.com/api/webhooks/1225440016575103077/N56PO8X6Jf3mTkSWDKhelqpdw8mklCcMmUEmWQZxO9uiHuxIQE68pN0Gfoecjbt-1xMJ
+        url: https://discord.com/api/webhooks/your_webhook_id
         method: POST
         body_format: json
         body: |
           {
-            "content": "Disk space summary for {{ inventory_hostname }}:\n```{{ disk_usage.stdout }}```"
+            "content": "```{{ disk_usage.stdout }}```"
           }
         headers:
           Content-Type: application/json
