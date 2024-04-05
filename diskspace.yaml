@@ -15,14 +15,13 @@
 
     - name: Send discord message with disk space output
       uri:
-        url: https://discord.com/api/webhooks/1225440016575103077/N56PO8X6Jf3mTkSWDKhelqpdw8mklCcMmUEmWQZxO9uiHuxIQE68pN0Gfoecjbt-1xMJ
+        url: https://discord.com/api/webhooks/your_webhook_id
         method: POST
         body_format: json
         body: |
           {
-            "content": "```{{ disk_usage.stdout }}```"
+            "content": "{{ disk_usage.stdout | to_nice_json }}"
           }
         headers:
           Content-Type: application/json
         status_code: 200
-     # when: disk_usage.stdout[:-1]|int > 80
