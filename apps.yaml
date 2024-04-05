@@ -1,0 +1,17 @@
+---
+- name: Install Applications
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install Standard App's
+      ansible.builtin.apt:
+        name:
+          - neofetch
+          - docker.io
+          - docker-compose
+          - glances
+          - cockpit
+          - cockpit-pcp
+          - cockpit-machines
+        update_cache: true
