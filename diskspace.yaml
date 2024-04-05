@@ -6,7 +6,6 @@
     - name: Check disk space available
       ansible.builtin.shell:
         cmd: |
-          set -euo pipefail
           df -Ph /dev/sda /dev/sdb2 /dev/sdc /dev/mmcblk0p2
 #          df -Ph / | awk 'NR==2 {print $5}'
         executable: /bin/bash
