@@ -11,4 +11,7 @@
       community.general.discord:
         webhook_id: 1225440016575103077
         webhook_token: N56PO8X6Jf3mTkSWDKhelqpdw8mklCcMmUEmWQZxO9uiHuxIQE68pN0Gfoecjbt-1xMJ
-        content: "{{ disk_usage.stdout }}"
+        content:  |
+          ```
+          {{ disk_usage.stdout | regex_replace('(\\s+)', ' | ') }}
+          ```
