@@ -13,13 +13,13 @@
       check_mode: false
       register: disk_usage
 
-- name: Send discord message when disk space is over 80%
-  uri:
-    url: https://discord.com/api/webhooks/1225440016575103077/N56PO8X6Jf3mTkSWDKhelqpdw8mklCcMmUEmWQZxO9uiHuxIQE68pN0Gfoecjbt-1xMJ
-      method: POST
-      body_format: json
-      body: '{"content": "Disk space on {{ inventory_hostname }} is above 80%!"}'
-    headers:
-      Content-Type: application/json
-      status_code: 204
-      when: disk_usage.stdout[:-1]|int > 80
+    - name: Send discord message when disk space is over 80%
+      uri:
+        url: https://discord.com/api/webhooks/1225440016575103077/N56PO8X6Jf3mTkSWDKhelqpdw8mklCcMmUEmWQZxO9uiHuxIQE68pN0Gfoecjbt-1xMJ
+        method: POST
+        body_format: json
+        body: '{"content": "Disk space on {{ inventory_hostname }} is above 80%!"}'
+      headers:
+        Content-Type: application/json
+        status_code: 204
+        when: disk_usage.stdout[:-1]|int > 80
