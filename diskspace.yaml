@@ -9,8 +9,8 @@
 
     - name: Send disk usage to Discord
       community.general.discord:
-        webhook_id: 1225440016575103077
-        webhook_token: N56PO8X6Jf3mTkSWDKhelqpdw8mklCcMmUEmWQZxO9uiHuxIQE68pN0Gfoecjbt-1xMJ
+        webhook_id: "webhook_ID"
+        webhook_token: "webhook_token"
         content:  |
           # Disk Usage Summary:
           ```
