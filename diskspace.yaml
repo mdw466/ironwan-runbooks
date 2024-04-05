@@ -9,5 +9,6 @@
 
     - name: Send disk usage to Discord
       community.general.discord:
-        webhook: https://discord.com/api/webhooks/1225440016575103077/N56PO8X6Jf3mTkSWDKhelqpdw8mklCcMmUEmWQZxO9uiHuxIQE68pN0Gfoecjbt-1xMJ
+        webhook_id: "225440016575103077"
+        webhook_token: "N56PO8X6Jf3mTkSWDKhelqpdw8mklCcMmUEmWQZxO9uiHuxIQE68pN0Gfoecjbt-1xMJ"
         content: "{{ disk_usage.stdout }}"
